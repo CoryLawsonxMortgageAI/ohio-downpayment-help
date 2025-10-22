@@ -37,7 +37,7 @@ export default function Programs() {
         </header>
 
         {/* Hero */}
-        <section className="bg-gradient-to-br from-primary via-primary/90 to-secondary text-white py-16">
+        <section className="bg-gradient-to-br from-primary via-[oklch(0.60_0.16_175)] to-secondary text-white py-16">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">Down Payment Assistance Programs</h2>
@@ -259,7 +259,7 @@ export default function Programs() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-primary via-primary/90 to-secondary text-white">
+        <section className="py-16 bg-gradient-to-br from-primary via-[oklch(0.60_0.16_175)] to-secondary text-white">
           <div className="container text-center">
             <h3 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h3>
             <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">

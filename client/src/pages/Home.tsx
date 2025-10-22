@@ -124,7 +124,7 @@ export default function Home() {
         </header>
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary via-primary/90 to-secondary text-white py-16 md:py-24">
+        <section className="bg-gradient-to-br from-primary via-[oklch(0.60_0.16_175)] to-secondary text-white py-16 md:py-24">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -135,7 +135,7 @@ export default function Home() {
               </p>
               <Button 
                 size="lg" 
-                className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-6 h-auto font-bold shadow-xl"
+                className="bg-white text-primary hover:bg-accent hover:text-accent-foreground text-lg px-8 py-6 h-auto font-bold shadow-xl transition-all duration-300"
                 onClick={() => document.getElementById("eligibility-form")?.scrollIntoView({ behavior: "smooth" })}
               >
                 SEE HOW MUCH I CAN GET
@@ -149,7 +149,7 @@ export default function Home() {
           <div className="container">
             <h3 className="text-3xl font-bold text-center mb-12">Why Choose Down Payment Assistance Programs?</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="text-center">
+              <Card className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="mx-auto mb-4 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                     <DollarSign className="w-8 h-8 text-primary" />
@@ -161,10 +161,10 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="text-center">
+              <Card className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="mx-auto mb-4 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                    <HomeIcon className="w-8 h-8 text-primary" />
+                  <div className="mx-auto mb-4 w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center">
+                    <HomeIcon className="w-8 h-8 text-secondary" />
                   </div>
                   <CardTitle>Grants Available</CardTitle>
                 </CardHeader>
@@ -173,10 +173,10 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="text-center">
+              <Card className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="mx-auto mb-4 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                    <TrendingUp className="w-8 h-8 text-primary" />
+                  <div className="mx-auto mb-4 w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center">
+                    <TrendingUp className="w-8 h-8 text-accent-foreground" />
                   </div>
                   <CardTitle>Build Equity</CardTitle>
                 </CardHeader>
@@ -185,7 +185,7 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="text-center">
+              <Card className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="mx-auto mb-4 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                     <Shield className="w-8 h-8 text-primary" />
