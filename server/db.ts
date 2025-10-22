@@ -85,4 +85,43 @@ export async function getUser(id: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// Lead management queries
+import { leads, InsertLead, Lead } from "../drizzle/schema";
+import { nanoid } from "nanoid";
+
+export async function createLead(lead: Omit<InsertLead, "id">): Promise<Lead> {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const id = nanoid();
+  const newLead: InsertLead = {
+    ...lead,
+    id,
+  };
+
+  await db.insert(leads).values(newLead);
+  
+  const result = await db.select().from(leads).where(eq(leads.id, id)).limit(1);
+  return result[0];
+}
+
+export async function getLeads(): Promise<Lead[]> {
+  const db = await getDb();
+  if (!db) {
+    return [];
+  }
+
+  return await db.select().from(leads).orderBy(leads.createdAt);
+}
+
+export async function getLeadById(id: string): Promise<Lead | undefined> {
+  const db = await getDb();
+  if (!db) {
+    return undefined;
+  }
+
+  const result = await db.select().from(leads).where(eq(leads.id, id)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
