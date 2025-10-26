@@ -64,16 +64,24 @@
 
 ## Form Updates from PDF
 
-- [ ] Update form questions to match PDF format
-- [ ] Add "Do you work in first responder/healthcare/education?" field
-- [ ] Add "Active Military / Veteran or surviving spouse" checkbox
-- [ ] Add "How many people live in your household?" field
-- [ ] Add "Have you owned a home in the last 3 years?" field
-- [ ] Add "Total combined monthly household income" field
-- [ ] Add "Purchase Price Range" slider
-- [ ] Add "Monthly rent or mortgage payment" slider
-- [ ] Add "Monthly debt obligations" field
-- [ ] Update credit score field to match PDF options
-- [ ] Test all new form fields
-- [ ] Verify database schema supports new fields
+- [x] Update form questions to match PDF format
+- [x] Add "Do you work in first responder/healthcare/education?" field
+- [x] Add "Active Military / Veteran or surviving spouse" field
+- [x] Add "How many people live in your household?" field
+- [x] Add "Have you owned a home in the last 3 years?" field
+- [x] Add "Total combined monthly household income" field
+- [x] Add "Purchase Price Range" dropdown
+- [x] Add "Monthly rent or mortgage payment" field
+- [x] Add "Monthly debt obligations" field
+- [x] Update credit score field to match PDF options
+- [x] Test all new form fields on Instagram landing page
+- [x] Verify database schema supports new fields
+
+## Homepage Form Update
+
+- [x] Update homepage form to match Instagram landing page comprehensive format
+- [x] Add all 14 qualification fields to homepage form
+- [x] Ensure Geneva Financial LLC footer displays consistently
+- [ ] Test homepage form submission
+- [ ] Verify both forms save to database identically
 
