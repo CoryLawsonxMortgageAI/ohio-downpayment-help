@@ -5,6 +5,8 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import InstagramLanding from "./pages/InstagramLanding";
+import ThankYou from "./pages/ThankYou";
 import Programs from "./pages/Programs";
 
 function Router() {
@@ -12,6 +14,9 @@ function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/ig"} component={InstagramLanding} />
+      <Route path={"/instagram"} component={InstagramLanding} />
+      <Route path={"/thank-you"} component={ThankYou} />
       <Route path={"/programs"} component={Programs} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

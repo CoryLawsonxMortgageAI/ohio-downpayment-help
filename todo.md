@@ -43,3 +43,19 @@
 - [ ] Add mortgage calculator tool
 - [ ] Create video explainers for each program
 
+
+
+
+## Instagram Traffic Optimization
+
+- [x] Create Instagram-specific landing page with simplified form
+- [x] Add Instagram-optimized hero section with hook from Reels
+- [x] Implement UTM tracking for Instagram traffic
+- [x] Add social proof elements (testimonials, trust badges)
+- [x] Optimize mobile form for thumb-friendly interaction
+- [x] Add "As Seen On Instagram" badge
+- [x] Create thank you page with social share buttons
+- [ ] Add exit-intent popup for Instagram visitors
+- [x] Implement faster form (fewer fields for mobile)
+- [ ] Add Instagram feed embed (optional)
+
