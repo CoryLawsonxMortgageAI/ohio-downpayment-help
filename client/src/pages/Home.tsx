@@ -124,9 +124,9 @@ export default function Home() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <img
-                  src="/ohio_dpa_profile_logo.png"
+                  src="/logo.png"
                   alt="Ohio Down Payment Help"
-                  className="h-12 w-12"
+                  className="h-12 w-12 object-contain"
                 />
                 <div>
                   <h1 className="text-lg font-bold">Ohio Down Payment Help</h1>
