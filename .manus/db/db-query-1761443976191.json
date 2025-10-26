@@ -1,0 +1,27 @@
+{
+  "query": "SELECT * FROM leads ORDER BY createdAt DESC LIMIT 1",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4MzpgAwHjXaMjvK.afeb06482289 --database 6RBbREjbJLZQFZmXvm7dpi --execute SELECT * FROM leads ORDER BY createdAt DESC LIMIT 1",
+  "rows": [
+    {
+      "id": "xwZkcSAnejJLhFsIs4HeC",
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "john.smith@test.com",
+      "phone": "(614) 555-0123",
+      "city": "Columbus",
+      "zipCode": "43215",
+      "isFirstTimeBuyer": "yes",
+      "estimatedIncome": "60k-80k",
+      "estimatedCreditScore": "680-740",
+      "source": "website",
+      "status": "new",
+      "notes": "NULL",
+      "createdAt": "2025-10-26 01:59:15",
+      "updatedAt": "2025-10-26 01:59:15"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tfirstName\tlastName\temail\tphone\tcity\tzipCode\tisFirstTimeBuyer\testimatedIncome\testimatedCreditScore\tsource\tstatus\tnotes\tcreatedAt\tupdatedAt\nxwZkcSAnejJLhFsIs4HeC\tJohn\tSmith\tjohn.smith@test.com\t(614) 555-0123\tColumbus\t43215\tyes\t60k-80k\t680-740\twebsite\tnew\tNULL\t2025-10-26 01:59:15\t2025-10-26 01:59:15\n",
+  "stderr": "",
+  "execution_time_ms": 582
+}
