@@ -85,3 +85,15 @@
 - [ ] Test homepage form submission
 - [ ] Verify both forms save to database identically
 
+
+
+
+## Compliance Updates
+
+- [x] Add Cory Lawson NMLS #891785 information to footer
+- [x] Add branch office address to footer
+- [x] Add contact email to footer
+- [x] Update compliance disclaimers with proper grammar
+- [x] Ensure all pages have updated footer
+- [x] Test footer display on all pages
+

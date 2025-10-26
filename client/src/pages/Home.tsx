@@ -609,16 +609,38 @@ export default function Home() {
         {/* Footer */}
         <footer className="border-t mt-16 py-8 bg-card/50">
           <div className="container text-center text-sm text-muted-foreground">
-            <div className="font-semibold text-foreground mb-2">Geneva Financial LLC | NMLS #42056</div>
-            <div>Licensed in Ohio | Equal Housing Opportunity</div>
-            <div className="mt-4 text-xs max-w-3xl mx-auto">
-              Subject to credit approval and program availability. Programs may not be available in all areas.
-              This is not an offer to extend credit or a commitment to lend. All information is subject to change without notice.
-              Geneva Financial LLC is licensed in Ohio. Equal Housing Opportunity. © 2025 DownPaymentOhio.org for informational purposes only.
-              No guarantee of accuracy is expressed or implied. Programs shown may not include all options or pricing structures.
-              Rates, terms, programs and underwriting policies subject to change without notice. This is not an offer to extend
-              credit or a commitment to lend. All loans subject to underwriting approval. Some products may not be available in
-              all states. Restrictions apply. Geneva Financial, LLC NMLS ID #42056. Equal Housing Opportunity.
+            <div className="font-semibold text-foreground mb-3">
+              Cory Lawson NMLS #891785
+            </div>
+            <div className="mb-2">
+              Licensed in Ohio, Florida, and Michigan
+            </div>
+            <div className="mb-2">
+              Geneva Financial, LLC | NMLS #42056
+            </div>
+            <div className="mb-2">
+              Branch Office: 2029 Riverside Drive, Suite 200, Columbus, OH 43221
+            </div>
+            <div className="mb-3">
+              <a href="mailto:clawson@genevafi.com" className="text-primary hover:underline">
+                clawson@genevafi.com
+              </a>
+            </div>
+            <div className="mt-4 text-xs max-w-3xl mx-auto leading-relaxed">
+              Equal Housing Opportunity. All loans subject to underwriting approval and program availability. 
+              This is not a commitment to lend or extend credit. Programs may not be available in all areas. 
+              Rates, terms, programs, and underwriting policies subject to change without notice. 
+              Some products may not be available in all states. Restrictions apply. 
+              For licensing information, visit{" "}
+              <a 
+                href="https://www.nmlsconsumeraccess.org" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                www.nmlsconsumeraccess.org
+              </a>
+              . © 2025 DownPaymentOhio.org. All rights reserved.
             </div>
           </div>
         </footer>
