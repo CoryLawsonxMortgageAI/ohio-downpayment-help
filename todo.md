@@ -119,3 +119,13 @@
 - [x] Add Privacy Policy route to App.tsx
 - [ ] Test privacy policy page display
 
+
+
+
+## Bug Fixes
+
+- [x] Fix "[unauthenticated] missing authorization header" error (was temporary)
+- [x] Fix database schema mismatch in form submission
+- [x] Align form fields with database columns
+- [ ] Test form submission end-to-end
+

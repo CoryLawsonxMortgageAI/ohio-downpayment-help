@@ -32,8 +32,15 @@ export const appRouter = router({
           city: z.string().optional(),
           zipCode: z.string().optional(),
           isFirstTimeBuyer: z.enum(["yes", "no"]).optional(),
-          estimatedIncome: z.string().optional(),
-          estimatedCreditScore: z.string().optional(),
+          isMilitaryVeteran: z.enum(["yes", "no"]).optional(),
+          isFirstResponderHealthcareEducation: z.enum(["yes", "no"]).optional(),
+          householdSize: z.number().optional(),
+          ownedHomeInLast3Years: z.enum(["yes", "no"]).optional(),
+          monthlyHouseholdIncome: z.number().optional(),
+          purchasePriceRange: z.string().optional(),
+          monthlyRentOrMortgage: z.number().optional(),
+          monthlyDebtObligations: z.number().optional(),
+          creditScore: z.string().optional(),
           source: z.string().default("website"),
         })
       )
@@ -43,7 +50,7 @@ export const appRouter = router({
         // Notify owner of new lead
         await notifyOwner({
           title: "New Down Payment Assistance Lead",
-          content: `Name: ${input.firstName} ${input.lastName}\nEmail: ${input.email}\nPhone: ${input.phone}\nCity: ${input.city || "N/A"}\nZip: ${input.zipCode || "N/A"}\nFirst-time buyer: ${input.isFirstTimeBuyer || "N/A"}\nIncome: ${input.estimatedIncome || "N/A"}\nCredit Score: ${input.estimatedCreditScore || "N/A"}`,
+          content: `Name: ${input.firstName} ${input.lastName}\nEmail: ${input.email}\nPhone: ${input.phone}\nFirst-time buyer: ${input.isFirstTimeBuyer || "N/A"}\nMilitary/Veteran: ${input.isMilitaryVeteran || "N/A"}\nFirst Responder/Healthcare/Education: ${input.isFirstResponderHealthcareEducation || "N/A"}\nHousehold Size: ${input.householdSize || "N/A"}\nOwned Home in Last 3 Years: ${input.ownedHomeInLast3Years || "N/A"}\nMonthly Income: $${input.monthlyHouseholdIncome || "N/A"}\nPurchase Price Range: ${input.purchasePriceRange || "N/A"}\nMonthly Rent/Mortgage: $${input.monthlyRentOrMortgage || "N/A"}\nMonthly Debt: $${input.monthlyDebtObligations || "N/A"}\nCredit Score: ${input.creditScore || "N/A"}`,
         });
         
         return lead;
