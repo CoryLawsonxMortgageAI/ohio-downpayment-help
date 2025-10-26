@@ -2,15 +2,13 @@
 
 A comprehensive lead generation website for down payment assistance programs in Ohio, built for Geneva Financial LLC (NMLS #42056).
 
-![Ohio Down Payment Help](client/public/ohio_dpa_profile_logo.png)
-
-## 🏠 Overview
+## Overview
 
 This website helps Ohio homebuyers discover and qualify for down payment assistance programs, including FHA, VA, USDA, and OHFA programs. The platform captures qualified leads through an optimized conversion funnel designed for both organic search (SEO) and Instagram traffic.
 
 **Live Demo:** [View Website](https://3000-ix3a5mwfq5jvtxfv6n0pc-e6daac30.manusvm.computer)
 
-## ✨ Features
+## Features
 
 ### Lead Generation
 - **Comprehensive 14-field qualification form** capturing:
@@ -27,35 +25,35 @@ This website helps Ohio homebuyers discover and qualify for down payment assista
   - Credit score range
 
 ### SEO Optimization
-- ✅ Meta tags optimized for "down payment ohio" keywords
-- ✅ Structured data (JSON-LD) for Google rich snippets
-- ✅ Sitemap.xml and robots.txt
-- ✅ Semantic HTML with proper heading hierarchy
-- ✅ Fast page load times
-- ✅ Mobile-responsive design
+- Meta tags optimized for "down payment ohio" keywords
+- Structured data (JSON-LD) for Google rich snippets
+- Sitemap.xml and robots.txt
+- Semantic HTML with proper heading hierarchy
+- Fast page load times
+- Mobile-responsive design
 
 ### Instagram Integration
-- ✅ Dedicated `/ig` landing page for Instagram traffic
-- ✅ "As Seen On Instagram" branding badge
-- ✅ Mobile-first form design
-- ✅ Thank you page with social sharing buttons
-- ✅ UTM tracking for Instagram campaigns
+- Dedicated `/ig` landing page for Instagram traffic
+- "As Seen On Instagram" branding badge
+- Mobile-first form design
+- Thank you page with social sharing buttons
+- UTM tracking for Instagram campaigns
 
 ### NMLS Compliance
-- ✅ Geneva Financial LLC | NMLS #42056 on every page
-- ✅ Equal Housing Opportunity statements
-- ✅ "Subject to credit approval" disclaimers
-- ✅ Licensed in Ohio statements
-- ✅ Compliant language throughout (no "guaranteed approval")
+- Geneva Financial LLC | NMLS #42056 on every page
+- Equal Housing Opportunity statements
+- "Subject to credit approval" disclaimers
+- Licensed in Ohio statements
+- Compliant language throughout (no "guaranteed approval")
 
 ### Technical Features
-- ✅ Database storage for all leads
-- ✅ Automatic owner notifications on new lead submission
-- ✅ Form validation and error handling
-- ✅ Psychologically-optimized color scheme (teal-blue/green)
-- ✅ Responsive design for all devices
+- Database storage for all leads
+- Automatic owner notifications on new lead submission
+- Form validation and error handling
+- Psychologically-optimized color scheme (teal-blue/green)
+- Responsive design for all devices
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React 19** - UI framework
@@ -78,7 +76,7 @@ This website helps Ohio homebuyers discover and qualify for down payment assista
 - **S3** - File storage
 - **Built-in APIs** - Notifications, analytics
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ohio-downpayment-help/
@@ -106,7 +104,7 @@ ohio-downpayment-help/
 └── storage/                 # S3 storage helpers
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 22+
@@ -148,7 +146,7 @@ pnpm dev
 
 The application will be available at `http://localhost:3000`
 
-## 📊 Database Schema
+## Database Schema
 
 ### Leads Table
 ```sql
@@ -175,7 +173,7 @@ CREATE TABLE leads (
 );
 ```
 
-## 🎨 Design System
+## Design System
 
 ### Colors
 - **Primary (Teal-Blue)**: Trust, security, reliability
@@ -191,7 +189,7 @@ CREATE TABLE leads (
 - Tailwind utilities for custom styling
 - Mobile-first responsive design
 
-## 📈 SEO Strategy
+## SEO Strategy
 
 ### Target Keywords
 - Primary: "ohio down payment assistance"
@@ -208,7 +206,7 @@ CREATE TABLE leads (
 2. Programs page: Detailed program information
 3. Future: Blog posts, city-specific pages
 
-## 📱 Instagram Strategy
+## Instagram Strategy
 
 ### Landing Page (`/ig`)
 - Simplified mobile-first design
@@ -221,10 +219,7 @@ CREATE TABLE leads (
 - Organic search: 15-25%
 - Overall: 20-35%
 
-### Content Calendar
-See `/home/ubuntu/ohio_dpa_30_day_content_calendar.md` for detailed Instagram content strategy
-
-## 🔒 NMLS Compliance
+## NMLS Compliance
 
 All pages include required disclosures:
 - Geneva Financial LLC | NMLS #42056
@@ -232,7 +227,7 @@ All pages include required disclosures:
 - Equal Housing Opportunity
 - Subject to credit approval and program availability
 
-## 🚢 Deployment
+## Deployment
 
 ### Manus Platform (Recommended)
 1. Create checkpoint: `webdev_save_checkpoint`
@@ -252,7 +247,7 @@ pnpm build
 pnpm start
 ```
 
-## 📊 Analytics
+## Analytics
 
 ### Tracking
 - Built-in Manus analytics for UV/PV
@@ -265,21 +260,21 @@ pnpm start
 - Time to contact
 - Conversion to application
 
-## 🤝 Contributing
+## Contributing
 
 This is a private project for Geneva Financial LLC. For questions or support, contact the development team.
 
-## 📄 License
+## License
 
-Proprietary - © 2025 Geneva Financial LLC. All rights reserved.
+Proprietary - Copyright 2025 Geneva Financial LLC. All rights reserved.
 
-## 🔗 Links
+## Links
 
 - **GitHub Repository**: https://github.com/CoryLawsonxMortgageAI/ohio-downpayment-help
 - **Geneva Financial**: https://www.genevafi.com
 - **NMLS Consumer Access**: https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/42056
 
-## 📞 Support
+## Support
 
 For technical support or questions:
 - Create an issue on GitHub
@@ -288,7 +283,7 @@ For technical support or questions:
 
 ---
 
-**Built with ❤️ for Ohio homebuyers**
+**Built for Ohio homebuyers**
 
 *Helping families achieve the dream of homeownership through down payment assistance programs.*
 
