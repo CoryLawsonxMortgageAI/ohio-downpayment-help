@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,340 +9,444 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Instagram, CheckCircle2, Shield, Clock, FileCheck } from "lucide-react";
 import { trpc } from "@/lib/trpc";
-import { CheckCircle2, Shield, Clock, Gift, Instagram } from "lucide-react";
-import { toast } from "sonner";
+import { useState } from "react";
+import { useLocation } from "wouter";
 
 export default function InstagramLanding() {
+  const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    city: "",
-    zipCode: "",
-    isFirstTimeHomebuyer: "",
-    householdIncome: "",
-    creditScoreRange: "",
+    isFirstTimeBuyer: "",
+    isMilitaryVeteran: "",
+    isFirstResponderHealthcareEducation: "",
+    householdSize: "",
+    ownedHomeInLast3Years: "",
+    monthlyHouseholdIncome: "",
+    purchasePriceRange: "",
+    monthlyRentOrMortgage: "",
+    monthlyDebtObligations: "",
+    creditScore: "",
   });
 
   const submitLead = trpc.leads.submit.useMutation({
     onSuccess: () => {
-      toast.success("Success! Check your email for next steps.");
-      // Redirect to thank you page
-      window.location.href = "/thank-you";
-    },
-    onError: (error) => {
-      toast.error("Something went wrong. Please try again.");
-      console.error(error);
+      setLocation("/thank-you");
     },
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-
     submitLead.mutate({
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phone: formData.phone,
-      city: formData.city,
-      zipCode: formData.zipCode,
-      isFirstTimeBuyer: formData.isFirstTimeHomebuyer === "Yes" ? "yes" : "no",
-      estimatedIncome: formData.householdIncome,
-      estimatedCreditScore: formData.creditScoreRange,
+      ...formData,
+      householdSize: formData.householdSize ? parseInt(formData.householdSize) : undefined,
+      monthlyHouseholdIncome: formData.monthlyHouseholdIncome ? parseInt(formData.monthlyHouseholdIncome) : undefined,
+      monthlyRentOrMortgage: formData.monthlyRentOrMortgage ? parseInt(formData.monthlyRentOrMortgage) : undefined,
+      monthlyDebtObligations: formData.monthlyDebtObligations ? parseInt(formData.monthlyDebtObligations) : undefined,
       source: "instagram",
     });
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
     <>
       <Helmet>
-        <title>Get Up To $15,000 For Your Down Payment | Ohio Down Payment Help</title>
+        <title>Check Your Eligibility - Ohio Down Payment Help</title>
         <meta
           name="description"
-          content="Seen us on Instagram? Get your free eligibility check now. Find out if you qualify for up to $15,000+ in down payment assistance in Ohio."
+          content="Get up to $15,000+ in down payment assistance for your Ohio home. Check your eligibility in 2 minutes - 100% free, no obligation."
         />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-b from-primary/5 to-background">
         {/* Header */}
-        <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-          <div className="container flex h-16 items-center justify-between">
-            <div className="flex items-center gap-2">
-              <img
-                src="/ohio_dpa_profile_logo.png"
-                alt="Ohio Down Payment Help"
-                className="h-10 w-10"
-              />
-              <div className="flex flex-col">
-                <span className="font-bold text-lg">Ohio Down Payment Help</span>
-                <span className="text-xs text-muted-foreground">Geneva Financial LLC | NMLS #42056</span>
+        <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+          <div className="container py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/ohio_dpa_profile_logo.png"
+                  alt="Ohio Down Payment Help"
+                  className="h-12 w-12"
+                />
+                <div>
+                  <h1 className="text-lg font-bold">Ohio Down Payment Help</h1>
+                  <p className="text-xs text-muted-foreground">Geneva Financial LLC | NMLS #42056</p>
+                </div>
               </div>
             </div>
           </div>
         </header>
 
-        {/* Hero Section - Instagram Optimized */}
-        <section className="py-8 px-4">
-          <div className="container max-w-2xl mx-auto text-center">
-            {/* Instagram Badge */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Instagram className="h-4 w-4" />
-              As Seen On Instagram
-            </div>
+        <main className="container py-8">
+          {/* Instagram Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold mb-6 mx-auto block w-fit">
+            <Instagram className="h-4 w-4" />
+            As Seen On Instagram
+          </div>
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-              Get Up To <span className="text-primary">$15,000+</span> For Your Down Payment
-            </h1>
-
+          {/* Hero Section */}
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Get Up To $15,000+ For Your Down Payment
+            </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              You don't need 20% down. Most Ohio buyers qualify for programs that give you FREE money for your down payment.
+              Discover how easy it is to buy a home in Ohio with little or no money down
             </p>
 
             {/* Trust Indicators */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <div className="flex flex-col items-center">
-                <CheckCircle2 className="h-8 w-8 text-primary mb-2" />
-                <span className="text-sm font-medium">100% Free</span>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-card border">
+                <FileCheck className="h-6 w-6 text-primary" />
+                <span className="text-sm font-semibold">100% Free</span>
               </div>
-              <div className="flex flex-col items-center">
-                <Shield className="h-8 w-8 text-primary mb-2" />
-                <span className="text-sm font-medium">Secure</span>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-card border">
+                <Shield className="h-6 w-6 text-primary" />
+                <span className="text-sm font-semibold">Secure</span>
               </div>
-              <div className="flex flex-col items-center">
-                <Clock className="h-8 w-8 text-primary mb-2" />
-                <span className="text-sm font-medium">2 Min Check</span>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-card border">
+                <Clock className="h-6 w-6 text-primary" />
+                <span className="text-sm font-semibold">2 Minutes</span>
               </div>
-              <div className="flex flex-col items-center">
-                <Gift className="h-8 w-8 text-primary mb-2" />
-                <span className="text-sm font-medium">No Obligation</span>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-card border">
+                <CheckCircle2 className="h-6 w-6 text-primary" />
+                <span className="text-sm font-semibold">No Obligation</span>
               </div>
             </div>
           </div>
-        </section>
 
-        {/* Simplified Form - Instagram Optimized */}
-        <section className="py-8 px-4">
-          <div className="container max-w-xl mx-auto">
-            <div className="bg-card border rounded-lg shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-center mb-2">Check Your Eligibility</h2>
-              <p className="text-center text-muted-foreground mb-6">
-                Fill out the form below. Takes just 2 minutes!
-              </p>
+          {/* Form */}
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-card border rounded-lg shadow-lg p-6 md:p-8">
+              <h3 className="text-2xl font-bold mb-6 text-center">Check Your Eligibility</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Name Fields */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name *</Label>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Personal Information */}
+                <div className="space-y-4">
+                  <h4 className="font-semibold text-lg">Personal Information</h4>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="firstName">First Name *</Label>
+                      <Input
+                        id="firstName"
+                        required
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        placeholder="John"
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="lastName">Last Name *</Label>
+                      <Input
+                        id="lastName"
+                        required
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        placeholder="Smith"
+                        className="mt-1"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="email">Email *</Label>
                     <Input
-                      id="firstName"
-                      placeholder="John"
-                      value={formData.firstName}
-                      onChange={(e) => handleInputChange("firstName", e.target.value)}
+                      id="email"
+                      type="email"
                       required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="john.smith@example.com"
+                      className="mt-1"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name *</Label>
+
+                  <div>
+                    <Label htmlFor="phone">Phone Number *</Label>
                     <Input
-                      id="lastName"
-                      placeholder="Smith"
-                      value={formData.lastName}
-                      onChange={(e) => handleInputChange("lastName", e.target.value)}
+                      id="phone"
+                      type="tel"
                       required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="(614) 555-0123"
+                      className="mt-1"
                     />
                   </div>
                 </div>
 
-                {/* Contact Fields */}
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john.smith@example.com"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
-                    required
-                  />
-                </div>
+                {/* Qualification Questions */}
+                <div className="space-y-4 pt-4 border-t">
+                  <h4 className="font-semibold text-lg">Qualification Questions</h4>
 
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="(614) 555-0123"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange("phone", e.target.value)}
-                    required
-                  />
-                </div>
+                  <div>
+                    <Label htmlFor="isFirstTimeBuyer">Are you a first-time homebuyer? *</Label>
+                    <Select
+                      value={formData.isFirstTimeBuyer}
+                      onValueChange={(value) => setFormData({ ...formData, isFirstTimeBuyer: value })}
+                      required
+                    >
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="Select..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="yes">Yes</SelectItem>
+                        <SelectItem value="no">No</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
 
-                {/* Location Fields */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="city">City</Label>
+                  <div>
+                    <Label htmlFor="isMilitaryVeteran">
+                      Are you currently serving in the US military or have you served prior? *
+                    </Label>
+                    <Select
+                      value={formData.isMilitaryVeteran}
+                      onValueChange={(value) => setFormData({ ...formData, isMilitaryVeteran: value })}
+                      required
+                    >
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="Select..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="yes">Yes - Active Military, Veteran, or Surviving Spouse</SelectItem>
+                        <SelectItem value="no">No</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="isFirstResponderHealthcareEducation">
+                      Do you or a co-borrower work in any of the following professions? *
+                    </Label>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      First Responder, Healthcare, or Education
+                    </p>
+                    <Select
+                      value={formData.isFirstResponderHealthcareEducation}
+                      onValueChange={(value) => setFormData({ ...formData, isFirstResponderHealthcareEducation: value })}
+                      required
+                    >
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="Select..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="yes">Yes</SelectItem>
+                        <SelectItem value="no">No</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="householdSize">How many people live in your household? *</Label>
                     <Input
-                      id="city"
-                      placeholder="Columbus"
-                      value={formData.city}
-                      onChange={(e) => handleInputChange("city", e.target.value)}
+                      id="householdSize"
+                      type="number"
+                      min="1"
+                      max="20"
+                      required
+                      value={formData.householdSize}
+                      onChange={(e) => setFormData({ ...formData, householdSize: e.target.value })}
+                      placeholder="e.g., 4"
+                      className="mt-1"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="zipCode">Zip Code</Label>
+
+                  <div>
+                    <Label htmlFor="ownedHomeInLast3Years">Have you owned a home in the last 3 years? *</Label>
+                    <Select
+                      value={formData.ownedHomeInLast3Years}
+                      onValueChange={(value) => setFormData({ ...formData, ownedHomeInLast3Years: value })}
+                      required
+                    >
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="Select..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="yes">Yes</SelectItem>
+                        <SelectItem value="no">No</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                {/* Financial Information */}
+                <div className="space-y-4 pt-4 border-t">
+                  <h4 className="font-semibold text-lg">Financial Information</h4>
+
+                  <div>
+                    <Label htmlFor="monthlyHouseholdIncome">
+                      Total combined monthly household income *
+                    </Label>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Include all sources and people who will be applying
+                    </p>
                     <Input
-                      id="zipCode"
-                      placeholder="43215"
-                      value={formData.zipCode}
-                      onChange={(e) => handleInputChange("zipCode", e.target.value)}
+                      id="monthlyHouseholdIncome"
+                      type="number"
+                      min="0"
+                      required
+                      value={formData.monthlyHouseholdIncome}
+                      onChange={(e) => setFormData({ ...formData, monthlyHouseholdIncome: e.target.value })}
+                      placeholder="e.g., 5000"
+                      className="mt-1"
                     />
                   </div>
-                </div>
 
-                {/* Qualification Fields */}
-                <div className="space-y-2">
-                  <Label htmlFor="firstTimeHomebuyer">Are you a first-time homebuyer?</Label>
-                  <Select
-                    value={formData.isFirstTimeHomebuyer}
-                    onValueChange={(value) => handleInputChange("isFirstTimeHomebuyer", value)}
-                  >
-                    <SelectTrigger id="firstTimeHomebuyer">
-                      <SelectValue placeholder="Select..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Yes">Yes</SelectItem>
-                      <SelectItem value="No">No</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="householdIncome">Estimated Household Income</Label>
-                  <Select
-                    value={formData.householdIncome}
-                    onValueChange={(value) => handleInputChange("householdIncome", value)}
-                  >
-                    <SelectTrigger id="householdIncome">
-                      <SelectValue placeholder="Select range..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Under $40,000">Under $40,000</SelectItem>
-                      <SelectItem value="$40,000 - $60,000">$40,000 - $60,000</SelectItem>
-                      <SelectItem value="$60,000 - $80,000">$60,000 - $80,000</SelectItem>
-                      <SelectItem value="$80,000 - $100,000">$80,000 - $100,000</SelectItem>
-                      <SelectItem value="Over $100,000">Over $100,000</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="creditScoreRange">Estimated Credit Score Range</Label>
-                  <Select
-                    value={formData.creditScoreRange}
-                    onValueChange={(value) => handleInputChange("creditScoreRange", value)}
-                  >
-                    <SelectTrigger id="creditScoreRange">
-                      <SelectValue placeholder="Select range..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Under 580">Under 580</SelectItem>
-                      <SelectItem value="580 - 620">580 - 620</SelectItem>
-                      <SelectItem value="620 - 680">620 - 680</SelectItem>
-                      <SelectItem value="680 - 740">680 - 740</SelectItem>
-                      <SelectItem value="Over 740">Over 740</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Trust Badges */}
-                <div className="bg-primary/5 rounded-lg p-4 space-y-2">
-                  <div className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>100% Free - No Obligation</span>
+                  <div>
+                    <Label htmlFor="purchasePriceRange">Purchase Price Range *</Label>
+                    <Select
+                      value={formData.purchasePriceRange}
+                      onValueChange={(value) => setFormData({ ...formData, purchasePriceRange: value })}
+                      required
+                    >
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="Select range..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="50000-100000">$50,000 - $100,000</SelectItem>
+                        <SelectItem value="100000-150000">$100,000 - $150,000</SelectItem>
+                        <SelectItem value="150000-200000">$150,000 - $200,000</SelectItem>
+                        <SelectItem value="200000-250000">$200,000 - $250,000</SelectItem>
+                        <SelectItem value="250000-300000">$250,000 - $300,000</SelectItem>
+                        <SelectItem value="300000-400000">$300,000 - $400,000</SelectItem>
+                        <SelectItem value="400000-500000">$400,000 - $500,000</SelectItem>
+                        <SelectItem value="500000+">$500,000+</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Your information is secure and never shared</span>
+
+                  <div>
+                    <Label htmlFor="monthlyRentOrMortgage">
+                      How much is your monthly rent or mortgage payment? *
+                    </Label>
+                    <Input
+                      id="monthlyRentOrMortgage"
+                      type="number"
+                      min="0"
+                      required
+                      value={formData.monthlyRentOrMortgage}
+                      onChange={(e) => setFormData({ ...formData, monthlyRentOrMortgage: e.target.value })}
+                      placeholder="e.g., 1200"
+                      className="mt-1"
+                    />
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Instant results via email</span>
+
+                  <div>
+                    <Label htmlFor="monthlyDebtObligations">
+                      Monthly debt obligations *
+                    </Label>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Credit cards, car payments, other debt only (do not include rent or utilities)
+                    </p>
+                    <Input
+                      id="monthlyDebtObligations"
+                      type="number"
+                      min="0"
+                      required
+                      value={formData.monthlyDebtObligations}
+                      onChange={(e) => setFormData({ ...formData, monthlyDebtObligations: e.target.value })}
+                      placeholder="e.g., 500"
+                      className="mt-1"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="creditScore">What is your credit score? *</Label>
+                    <Select
+                      value={formData.creditScore}
+                      onValueChange={(value) => setFormData({ ...formData, creditScore: value })}
+                      required
+                    >
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="Select range..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="below-580">Below 580</SelectItem>
+                        <SelectItem value="580-619">580 - 619</SelectItem>
+                        <SelectItem value="620-679">620 - 679</SelectItem>
+                        <SelectItem value="680-739">680 - 739</SelectItem>
+                        <SelectItem value="740+">740+</SelectItem>
+                        <SelectItem value="not-sure">Not Sure</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                {/* Consent Checkboxes */}
+                <div className="space-y-3 pt-4 border-t">
+                  <div className="flex items-start gap-3">
+                    <Checkbox id="consent1" required className="mt-1" />
+                    <Label htmlFor="consent1" className="text-sm leading-relaxed cursor-pointer">
+                      100% Free - No Obligation
+                    </Label>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Checkbox id="consent2" required className="mt-1" />
+                    <Label htmlFor="consent2" className="text-sm leading-relaxed cursor-pointer">
+                      Your information is secure and never shared
+                    </Label>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Checkbox id="consent3" required className="mt-1" />
+                    <Label htmlFor="consent3" className="text-sm leading-relaxed cursor-pointer">
+                      Instant results via email
+                    </Label>
                   </div>
                 </div>
 
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="w-full h-14 text-lg font-bold bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                  size="lg"
+                  className="w-full text-lg h-14 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
                   disabled={submitLead.isPending}
                 >
-                  {submitLead.isPending ? "CHECKING..." : "CHECK MY ELIGIBILITY (FREE)"}
+                  {submitLead.isPending ? "Checking..." : "CHECK MY ELIGIBILITY (FREE)"}
                 </Button>
+
+                {submitLead.isError && (
+                  <p className="text-sm text-destructive text-center">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
               </form>
             </div>
-          </div>
-        </section>
 
-        {/* Social Proof */}
-        <section className="py-8 px-4 bg-muted/30">
-          <div className="container max-w-2xl mx-auto text-center">
-            <h3 className="text-xl font-bold mb-4">Join Hundreds Of Ohio Homebuyers</h3>
-            <p className="text-muted-foreground mb-6">
-              We've helped hundreds of Ohioans access down payment assistance programs. You could be next!
-            </p>
-            <div className="flex justify-center gap-2">
-              <div className="bg-card border rounded-lg p-4 flex-1 max-w-xs">
-                <div className="text-3xl font-bold text-primary mb-1">$15K+</div>
-                <div className="text-sm text-muted-foreground">Average Assistance</div>
-              </div>
-              <div className="bg-card border rounded-lg p-4 flex-1 max-w-xs">
-                <div className="text-3xl font-bold text-primary mb-1">500+</div>
-                <div className="text-sm text-muted-foreground">Families Helped</div>
+            {/* Social Proof */}
+            <div className="mt-8 text-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <div className="text-3xl font-bold text-primary">500+</div>
+                  <div className="text-sm text-muted-foreground">Ohio Families Helped</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary">$15K</div>
+                  <div className="text-sm text-muted-foreground">Average Assistance</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary">24hrs</div>
+                  <div className="text-sm text-muted-foreground">Response Time</div>
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </main>
 
         {/* Footer */}
-        <footer className="border-t bg-card py-8 px-4">
-          <div className="container max-w-4xl mx-auto">
-            <div className="flex flex-col items-center gap-4 mb-6">
-              <img
-                src="/ohio_dpa_profile_logo.png"
-                alt="Ohio Down Payment Help"
-                className="h-12 w-12"
-              />
-              <div className="text-center">
-                <div className="font-bold">Geneva Financial LLC</div>
-                <div className="text-sm text-muted-foreground">NMLS #42056</div>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span>⚖️</span>
-                <span>Equal Housing Opportunity</span>
-              </div>
-            </div>
-
-            <div className="text-xs text-muted-foreground text-center space-y-2 max-w-2xl mx-auto">
-              <p>
-                © 2025 DownPaymentOH.org is for informational purposes only. No guarantee of accuracy is expressed or implied. Programs shown may not include all options or pricing structures. Rates, terms, programs and underwriting policies subject to change without notice. This is not an offer to extend credit or a commitment to lend. All loans subject to underwriting approval. Equal Housing Opportunity.
-              </p>
-              <p>
-                By completing and submitting the form provided on this website, you expressly grant permission for Geneva Financial LLC to contact you through the information you've provided. This may include contact via email, phone call, or text message.
-              </p>
+        <footer className="border-t mt-16 py-8 bg-card/50">
+          <div className="container text-center text-sm text-muted-foreground">
+            <div className="font-semibold text-foreground mb-2">Geneva Financial LLC | NMLS #42056</div>
+            <div>Licensed in Ohio | Equal Housing Opportunity</div>
+            <div className="mt-4 text-xs">
+              Subject to credit approval and program availability. Programs may not be available in all areas.
             </div>
           </div>
         </footer>

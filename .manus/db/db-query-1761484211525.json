@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS leads (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  firstName VARCHAR(255) NOT NULL,\n  lastName VARCHAR(255) NOT NULL,\n  email VARCHAR(255) NOT NULL,\n  phone VARCHAR(255) NOT NULL,\n  city VARCHAR(255),\n  zipCode VARCHAR(255),\n  isFirstTimeBuyer ENUM('yes', 'no'),\n  isMilitaryVeteran ENUM('yes', 'no'),\n  isFirstResponderHealthcareEducation ENUM('yes', 'no'),\n  householdSize INT,\n  ownedHomeInLast3Years ENUM('yes', 'no'),\n  monthlyHouseholdIncome INT,\n  estimatedIncome VARCHAR(255),\n  purchasePriceRange VARCHAR(255),\n  monthlyRentOrMortgage INT,\n  monthlyDebtObligations INT,\n  creditScore VARCHAR(255),\n  estimatedCreditScore VARCHAR(255),\n  source VARCHAR(255),\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 4MzpgAwHjXaMjvK.afeb06482289 --database 6RBbREjbJLZQFZmXvm7dpi --execute CREATE TABLE IF NOT EXISTS leads (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  firstName VARCHAR(255) NOT NULL,\n  lastName VARCHAR(255) NOT NULL,\n  email VARCHAR(255) NOT NULL,\n  phone VARCHAR(255) NOT NULL,\n  city VARCHAR(255),\n  zipCode VARCHAR(255),\n  isFirstTimeBuyer ENUM('yes', 'no'),\n  isMilitaryVeteran ENUM('yes', 'no'),\n  isFirstResponderHealthcareEducation ENUM('yes', 'no'),\n  householdSize INT,\n  ownedHomeInLast3Years ENUM('yes', 'no'),\n  monthlyHouseholdIncome INT,\n  estimatedIncome VARCHAR(255),\n  purchasePriceRange VARCHAR(255),\n  monthlyRentOrMortgage INT,\n  monthlyDebtObligations INT,\n  creditScore VARCHAR(255),\n  estimatedCreditScore VARCHAR(255),\n  source VARCHAR(255),\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 170
+}

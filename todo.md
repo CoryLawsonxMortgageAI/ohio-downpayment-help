@@ -59,3 +59,21 @@
 - [x] Implement faster form (fewer fields for mobile)
 - [ ] Add Instagram feed embed (optional)
 
+
+
+
+## Form Updates from PDF
+
+- [ ] Update form questions to match PDF format
+- [ ] Add "Do you work in first responder/healthcare/education?" field
+- [ ] Add "Active Military / Veteran or surviving spouse" checkbox
+- [ ] Add "How many people live in your household?" field
+- [ ] Add "Have you owned a home in the last 3 years?" field
+- [ ] Add "Total combined monthly household income" field
+- [ ] Add "Purchase Price Range" slider
+- [ ] Add "Monthly rent or mortgage payment" slider
+- [ ] Add "Monthly debt obligations" field
+- [ ] Update credit score field to match PDF options
+- [ ] Test all new form fields
+- [ ] Verify database schema supports new fields
+
