@@ -476,6 +476,11 @@ export default function InstagramLanding() {
               </a>
               . © 2025 DownPaymentOhio.org. All rights reserved.
             </div>
+            <div className="mt-4 pt-4 border-t border-border/50">
+              <Link href="/privacy-policy" className="text-xs text-primary hover:underline">
+                Privacy Policy
+              </Link>
+            </div>
           </div>
         </footer>
       </div>

@@ -7,7 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import InstagramLanding from "./pages/InstagramLanding";
 import ThankYou from "./pages/ThankYou";
-import Programs from "./pages/Programs";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -17,7 +17,7 @@ function Router() {
       <Route path={"/ig"} component={InstagramLanding} />
       <Route path={"/instagram"} component={InstagramLanding} />
       <Route path={"/thank-you"} component={ThankYou} />
-      <Route path={"/programs"} component={Programs} />
+      <Route path={"/privacy-policy"} component={PrivacyPolicy} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

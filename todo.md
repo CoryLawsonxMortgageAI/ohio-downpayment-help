@@ -97,3 +97,25 @@
 - [x] Ensure all pages have updated footer
 - [x] Test footer display on all pages
 
+
+
+
+## UI Updates
+
+- [x] Remove Programs navigation link from header
+- [x] Remove Programs page from routing
+- [x] Logo image already visible in header
+- [x] Ensure logo image is visible on homepage
+- [ ] Test header display on all pages
+
+
+
+
+## Privacy Policy
+
+- [x] Create Privacy Policy page
+- [x] Add privacy policy content with GLBA compliance
+- [x] Add Privacy Policy link to footer on all pages
+- [x] Add Privacy Policy route to App.tsx
+- [ ] Test privacy policy page display
+

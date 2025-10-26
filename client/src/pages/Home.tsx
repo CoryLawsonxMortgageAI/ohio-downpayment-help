@@ -137,9 +137,6 @@ export default function Home() {
                 <Link href="/" className="text-sm font-medium hover:text-primary">
                   Home
                 </Link>
-                <Link href="/programs" className="text-sm font-medium hover:text-primary">
-                  Programs
-                </Link>
               </nav>
             </div>
           </div>
@@ -641,6 +638,11 @@ export default function Home() {
                 www.nmlsconsumeraccess.org
               </a>
               . © 2025 DownPaymentOhio.org. All rights reserved.
+            </div>
+            <div className="mt-4 pt-4 border-t border-border/50">
+              <Link href="/privacy-policy" className="text-xs text-primary hover:underline">
+                Privacy Policy
+              </Link>
             </div>
           </div>
         </footer>
